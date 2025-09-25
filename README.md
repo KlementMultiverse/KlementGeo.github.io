@@ -1,2 +1,2 @@
-# KlementGeo.github.io
+# KlementMultiverse.github.io
 My GEO &amp; AI engineering hub
