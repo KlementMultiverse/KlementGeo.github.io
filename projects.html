@@ -156,6 +156,7 @@
       font-size: 0.85rem;
       color: var(--gray);
       margin-top: 1rem;
+      flex-wrap: wrap;
     }
     .project-meta span {
       display: flex;
@@ -168,6 +169,40 @@
       border-radius: 50%;
       display: inline-block;
     }
+    .project-links {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #eee;
+    }
+    .project-link {
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .link-github {
+      background: var(--dark);
+      color: white;
+    }
+    .link-github:hover {
+      opacity: 0.85;
+    }
+    .project-badge {
+      background: #f0f9ff;
+      color: var(--primary);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+    .badge-new { background: #dcfce7; color: #16a34a; }
+    .badge-active { background: #fef3c7; color: #d97706; }
 
     .loading {
       text-align: center;
@@ -318,15 +353,39 @@
       loading.style.display = 'none';
       container.style.display = 'grid';
 
-      container.innerHTML = repos.map(repo => `
+      container.innerHTML = repos.map(repo => {
+        const updatedDate = new Date(repo.updated_at);
+        const now = new Date();
+        const daysSinceUpdate = Math.floor((now - updatedDate) / (1000 * 60 * 60 * 24));
+        const isRecent = daysSinceUpdate < 30;
+        const isActive = daysSinceUpdate < 7;
+
+        // Enhanced descriptions for known projects
+        const enhancedDescriptions = {
+          'elder-guardian': '🛡️ AI-powered elderly fall detection system using NVIDIA Isaac Sim with real-time alerts',
+          'finexa': '💼 Autonomous Financial Intelligence System - RAG-based document processing for fintech',
+          'mars-mission-isaac': '🚀 NASA-grade Mars Sample Return demo - 100% online robotics simulation',
+          'Mysava': '🎭 Virtual influencer with interactive mode and face sync - full AI-powered digital human',
+          'customer-support-agent': '🤖 AI Customer Support Agent using OpenAI and ReAct pattern',
+          'nvidia-ai-report-generator': '📊 AI Research Agent using NVIDIA NIM + Tavily for auto-generating reports',
+          'rag-microservices': '⚙️ Production-ready RAG with microservices architecture',
+          'ai-dev-resources': '📚 Free AI/ML guides and resources for developers',
+          'Basic_RAG': '🔍 Foundational RAG implementation with vector search'
+        };
+
+        const description = enhancedDescriptions[repo.name] || repo.description || 'AI/ML project exploring cutting-edge technologies';
+
+        return `
         <div class="project-card">
           <div class="project-header">
             <span class="project-icon">📦</span>
             <h3 class="project-title">
-              <a href="${repo.html_url}" target="_blank" rel="noopener">${repo.name}</a>
+              <a href="${repo.html_url}" target="_blank" rel="noopener">${repo.name.replace(/-/g, ' ').replace(/^./, str => str.toUpperCase())}</a>
             </h3>
           </div>
-          <p class="project-description">${repo.description || 'No description available'}</p>
+          ${isActive ? '<span class="project-badge badge-active">🔥 Active Development</span>' : ''}
+          ${isRecent && !isActive ? '<span class="project-badge badge-new">Recently Updated</span>' : ''}
+          <p class="project-description">${description}</p>
           <div class="project-meta">
             ${repo.language ? `
               <span>
@@ -334,11 +393,15 @@
                 ${repo.language}
               </span>
             ` : ''}
-            <span>⭐ ${repo.stargazers_count}</span>
-            <span>🍴 ${repo.forks_count}</span>
+            <span>📅 Updated ${daysSinceUpdate === 0 ? 'today' : daysSinceUpdate === 1 ? 'yesterday' : daysSinceUpdate + ' days ago'}</span>
+          </div>
+          <div class="project-links">
+            <a href="${repo.html_url}" class="project-link link-github" target="_blank" rel="noopener">
+              View on GitHub →
+            </a>
           </div>
         </div>
-      `).join('');
+      `}).join('');
     }
 
     // Load projects on page load
