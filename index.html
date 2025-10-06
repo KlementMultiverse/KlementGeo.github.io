@@ -3,188 +3,402 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Klement Gunndu | GenAI Engineer</title>
-  <meta name="description" content="CCNA-certified GenAI Engineer building edge AI, robotics, and multi-agent systems. Open to roles in Big Tech, startups, and community-focused AI.">
+  <title>Klement Gunndu × AI | Building the Future Together</title>
+  <meta name="description" content="AI Engineer leveraging human-AI collaboration to build production systems. Multi-agent systems, automation, and FAANG-level projects.">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <style>
     :root {
-      --primary: #0969da;
-      --dark: #1f2937;
-      --light: #f9fafb;
-      --gray: #6b7280;
+      --primary: #6366f1;
+      --secondary: #8b5cf6;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --gray: #64748b;
       --accent: #10b981;
+      --glow: #a78bfa;
     }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-family: 'Segoe UI', -apple-system, sans-serif;
       line-height: 1.6;
       color: var(--dark);
-      background-color: #fff;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
     }
+
     .container {
-      max-width: 800px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 2rem 1.5rem;
     }
-    header {
+
+    /* Hero Section */
+    .hero {
       text-align: center;
-      padding: 3rem 0 2rem;
+      padding: 4rem 0 3rem;
+      color: white;
     }
-    h1 {
-      font-size: 2.4rem;
+
+    .hero h1 {
+      font-size: 3.5rem;
       margin-bottom: 1rem;
-      line-height: 1.2;
+      line-height: 1.1;
+      font-weight: 800;
+      text-shadow: 0 0 20px rgba(167, 139, 250, 0.5);
+      animation: glow 2s ease-in-out infinite alternate;
     }
-    .subtitle {
-      font-size: 1.2rem;
-      color: var(--gray);
-      max-width: 600px;
-      margin: 0 auto 2rem;
+
+    @keyframes glow {
+      from { text-shadow: 0 0 20px rgba(167, 139, 250, 0.5); }
+      to { text-shadow: 0 0 30px rgba(167, 139, 250, 0.8); }
     }
-    .card {
-      background: white;
-      border-radius: 12px;
-      padding: 1.8rem;
+
+    .tagline {
+      font-size: 1.5rem;
       margin-bottom: 2rem;
-      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-      border: 1px solid #eee;
+      color: #e0e7ff;
     }
+
+    .human-ai {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      margin: 1rem 0 2rem;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    /* Content Section */
+    .content {
+      background: white;
+      border-radius: 20px;
+      padding: 3rem;
+      margin: 2rem 0;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    .philosophy {
+      background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+      border-left: 4px solid var(--primary);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 10px;
+    }
+
     h2 {
-      font-size: 1.6rem;
-      margin-bottom: 1.2rem;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
       color: var(--dark);
+      position: relative;
+      padding-bottom: 0.5rem;
     }
-    ul {
-      padding-left: 1.4rem;
-      margin: 1rem 0;
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
     }
-    li {
-      margin-bottom: 0.6rem;
-    }
-    .highlight {
-      background: #f0f9ff;
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
-      font-weight: 600;
-    }
-    .cta {
-      text-align: center;
-      padding: 2.5rem 0;
-      background: var(--light);
-      border-radius: 12px;
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
       margin: 2rem 0;
     }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      border: 2px solid #e2e8f0;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+      border-color: var(--primary);
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .tech-badge {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .cta-section {
+      text-align: center;
+      padding: 3rem 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 20px;
+      margin: 3rem 0;
+      color: white;
+    }
+
     .btn {
       display: inline-block;
-      background: var(--primary);
-      color: white;
-      padding: 0.8rem 1.8rem;
+      background: white;
+      color: var(--primary);
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
       text-decoration: none;
-      border-radius: 8px;
-      font-weight: 600;
-      margin-top: 1rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin: 1rem 0.5rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
+
     .btn:hover {
-      opacity: 0.9;
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
     }
-    footer {
+
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      margin: 2rem 0;
       text-align: center;
-      padding-top: 2rem;
+    }
+
+    .stat {
+      flex: 1;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--primary);
+      display: block;
+    }
+
+    .stat-label {
       color: var(--gray);
       font-size: 0.9rem;
-      border-top: 1px solid #eee;
-      margin-top: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
-    @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
-      .subtitle { font-size: 1.1rem; }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: white;
+      font-size: 0.9rem;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, #667eea15, #764ba215);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .nav a:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .tagline { font-size: 1.2rem; }
+      .content { padding: 2rem 1.5rem; }
+      .stats { flex-direction: column; gap: 2rem; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>I Build AI That Works in the Real World</h1>
-      <p class="subtitle">CCNA-certified GenAI Engineer. I build edge AI, robotics, and multi-agent systems — and help businesses get cited by AI through GEO.</p>
-    </header>
 
-    <main>
-      <div class="card">
-        <h2>🔧 My Edge: From Networks to Physical AI</h2>
-        <p>I don’t just build AI — I build it like infrastructure:</p>
-        <ul>
-          <li><strong>Network Engineer</strong> (CCNA certified) — kept Fortune 500 systems running</li>
-          <li><strong>Performance Expert</strong> — JMeter, LoadRunner, Dynatrace, AppDynamics</li>
-          <li><strong>GenAI Engineer</strong> — RAG, fine-tuning, multimodal agents, real-time deployment</li>
-          <li><strong>Future Focus</strong> — Edge AI, robotic automation, multi-agent physical systems</li>
-        </ul>
-        <p>When AI hallucinates, I fix it with structure — because truth matters in the real world.</p>
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="container">
+      <h1>🤖 Klement Gunndu × AI</h1>
+      <p class="tagline">Building the Future Through Human-AI Collaboration</p>
+      <div class="human-ai">
+        💡 Human Creativity + 🤖 AI Capability = ⚡ Exponential Results
       </div>
 
-      <div class="card">
-        <h2>✅ What I Do</h2>
-        <ul>
-          <li><strong>Build complex GenAI systems</strong> — multi-agent workflows, edge deployments, RAG pipelines</li>
-          <li><strong>Optimize for AI visibility</strong> — through Generative Engine Optimization (GEO)</li>
-          <li><strong>Bridge digital + physical</strong> — integrating AI with robotics, sensors, and real-world automation</li>
-        </ul>
-        <p>I work with <span class="highlight">startups, Big Tech, research labs, and local businesses</span> — anyone serious about real AI.</p>
+      <div class="nav">
+        <a href="projects.html">Projects</a>
+        <a href="blog.html">Blog</a>
+        <a href="ai-playground.html">AI Playground</a>
+        <a href="https://github.com/KlementMultiverse" target="_blank">GitHub</a>
       </div>
-
-      <div class="card">
-        <h2>🚀 Open to Work</h2>
-        <p><strong>I’m actively seeking roles</strong> where I can:</p>
-        <ul>
-          <li>• Design and deploy edge AI use cases</li>
-          <li>• Build multi-agent systems for physical automation</li>
-          <li>• Scale GenAI infrastructure with reliability and trust</li>
-        </ul>
-        <p>Whether you’re a Fortune 500, a robotics startup, or a local shop — if you’re building real AI, let’s talk.</p>
-      </div>
-
-      <div class="card">
-        <h2>📈 Proof: Real Projects</h2>
-        <p><strong>Elder Guardian</strong> — AI-powered fall detection system using NVIDIA Isaac Sim</p>
-        <p><strong>Finexa</strong> — Autonomous Financial Intelligence System with RAG</p>
-        <p><strong>Mars Mission Isaac</strong> — NASA-grade Mars Sample Return simulation</p>
-        <p><strong>MYSAVA</strong> — Virtual influencer with face sync and interactive AI</p>
-        <p><em>I don't theorize — I deploy.</em></p>
-        <a href="/projects.html" class="btn" style="margin-top: 1rem; background: var(--accent);">View All Projects →</a>
-      </div>
-
-      <div class="card">
-        <h2>📚 Latest AI Articles</h2>
-        <p>I write about Agentic AI, RAG, LLMs, and Multimodal AI:</p>
-        <ul>
-          <li>Published on <strong>Dev.to, Hashnode, Substack</strong></li>
-          <li>Deep technical dives with real-world code</li>
-          <li>Production patterns and best practices</li>
-        </ul>
-        <a href="/blog.html" class="btn" style="margin-top: 1rem; background: var(--primary);">Read My Blog →</a>
-      </div>
-
-      <div class="card">
-        <h2>🎨 Try My AI Tools</h2>
-        <p>Experience the same GenAI technology that powers my blog automation:</p>
-        <ul>
-          <li><strong>AI Image Generator</strong> — 24 artistic themes</li>
-          <li><strong>Same tech as my blog</strong> — Try it yourself</li>
-          <li><strong>Free to use</strong> — No signup required</li>
-        </ul>
-        <a href="/ai-playground.html" class="btn" style="margin-top: 1rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">Try AI Playground →</a>
-      </div>
-
-      <div class="cta">
-        <h2>🤝 Let's Build the Future of AI Together</h2>
-        <p>I'm open to full-time, contract, or consulting roles — from Big Tech to community projects.</p>
-        <a href="https://www.linkedin.com/in/klement-gunndu-601872351" class="btn">Connect on LinkedIn →</a>
-      </div>
-    </main>
-
-    <footer>
-      <p>© 2025 Klement Gunndu | GenAI Engineer<br>
-      Live at <a href="https://klementmultiverse.github.io">klementmultiverse.github.io</a></p>
-    </footer>
+    </div>
   </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="content">
+
+      <!-- Philosophy -->
+      <div class="philosophy">
+        <h2>🧠 The Philosophy</h2>
+        <p style="font-size: 1.1rem; line-height: 1.8;">
+          I don't just <em>use</em> AI—I <strong>collaborate</strong> with it. Every project here demonstrates that
+          <span class="highlight">human creativity + AI capability = exponential productivity</span>.
+          Where humans provide strategy and vision, AI handles implementation and iteration. Together, we build in
+          <strong>days what takes others months</strong>.
+        </p>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-number">15+</span>
+          <span class="stat-label">Production Repos</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">AI-Collaborated</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">10x</span>
+          <span class="stat-label">Faster Building</span>
+        </div>
+      </div>
+
+      <!-- What I Build -->
+      <h2>🚀 What I Build</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>🤖 Multi-Agent AI Systems</h3>
+          <p>Building intelligent systems where multiple AI agents collaborate to solve complex problems. From automation to production debugging.</p>
+        </div>
+
+        <div class="card">
+          <h3>🏗️ FAANG-Level Projects</h3>
+          <p>Production systems that solve problems at Netflix, Uber, Google scale. Microservice visualization, log analysis, infrastructure optimization.</p>
+        </div>
+
+        <div class="card">
+          <h3>⚡ DevOps Automation</h3>
+          <p>Complete automation of development workflows. From code generation to deployment, testing to monitoring—all automated.</p>
+        </div>
+      </div>
+
+      <!-- Tech Stack -->
+      <h2>🛠️ Tech Stack</h2>
+      <div class="tech-stack">
+        <span class="tech-badge">Multi-Agent Systems</span>
+        <span class="tech-badge">Python</span>
+        <span class="tech-badge">FastAPI</span>
+        <span class="tech-badge">LangChain</span>
+        <span class="tech-badge">RAG</span>
+        <span class="tech-badge">Docker</span>
+        <span class="tech-badge">Kubernetes</span>
+        <span class="tech-badge">CI/CD</span>
+        <span class="tech-badge">AWS/GCP</span>
+        <span class="tech-badge">PostgreSQL</span>
+        <span class="tech-badge">Redis</span>
+        <span class="tech-badge">Vector DBs</span>
+      </div>
+
+      <!-- Collaboration Model -->
+      <h2>💡 The Collaboration Model</h2>
+      <div style="background: #f8fafc; padding: 2rem; border-radius: 15px; margin: 2rem 0;">
+        <div style="display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 1rem; align-items: center; text-align: center;">
+          <div>
+            <div style="font-size: 3rem;">🧠</div>
+            <strong>Human:</strong> Strategy
+          </div>
+          <div style="font-size: 2rem; color: var(--gray);">→</div>
+          <div>
+            <div style="font-size: 3rem;">🤖</div>
+            <strong>AI:</strong> Implementation
+          </div>
+          <div style="font-size: 2rem; color: var(--gray);">→</div>
+          <div>
+            <div style="font-size: 3rem;">🚀</div>
+            <strong>Result:</strong> Production
+          </div>
+        </div>
+      </div>
+
+      <!-- Current Focus -->
+      <h2>🎯 Current Focus</h2>
+      <ul style="font-size: 1.1rem; line-height: 2; margin: 1rem 0;">
+        <li>🔮 <strong>Production Log Analyzer</strong> - AI-powered debugging for production systems</li>
+        <li>🏗️ <strong>Microservice Visualizer</strong> - Map and debug 1000+ services in real-time</li>
+        <li>📊 <strong>Infrastructure Cost Optimizer</strong> - Save 40% on cloud costs automatically</li>
+        <li>🤖 <strong>Multi-Agent Frameworks</strong> - Building the next generation of AI systems</li>
+      </ul>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <h2 style="color: white; margin-bottom: 1rem;">💼 Open to Opportunities</h2>
+      <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #e0e7ff;">
+        AI/ML Engineering • DevOps/Platform Engineering • Full-Stack with AI Focus
+      </p>
+      <a href="https://www.linkedin.com/in/klement-gunndu-601872351" class="btn" target="_blank">Connect on LinkedIn</a>
+      <a href="https://github.com/KlementMultiverse" class="btn" target="_blank">View GitHub</a>
+      <a href="projects.html" class="btn">See Projects</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>🤖 Built through human-AI collaboration | © 2025 Klement Gunndu</p>
+      <p style="margin-top: 0.5rem; opacity: 0.8;">
+        "The future belongs to those who learn to collaborate with AI, not compete against it."
+      </p>
+    </div>
+  </footer>
+
 </body>
 </html>
