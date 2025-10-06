@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects | Klement Gunndu - AI & GenAI Portfolio</title>
+  <meta name="description" content="AI/ML projects by Klement Gunndu: Elder Guardian, Finexa, Mars Mission, MYSAVA, and more">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    :root {
+      --primary: #0969da;
+      --dark: #1f2937;
+      --light: #f9fafb;
+      --gray: #6b7280;
+      --accent: #10b981;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: #fff;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    header {
+      text-align: center;
+      padding: 3rem 0 2rem;
+      border-bottom: 2px solid #eee;
+      margin-bottom: 3rem;
+    }
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+    }
+    .subtitle {
+      font-size: 1.2rem;
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+    }
+    .nav {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+    .nav a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .featured-projects {
+      margin-bottom: 4rem;
+    }
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .featured-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    .featured-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+    .featured-card p {
+      margin-bottom: 1.5rem;
+      opacity: 0.95;
+    }
+    .featured-card .tech-stack {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .tech-badge {
+      background: rgba(255,255,255,0.2);
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+    .featured-card a {
+      color: white;
+      background: rgba(255,255,255,0.2);
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: 600;
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+    .featured-card a:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    .all-projects {
+      margin-top: 3rem;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .project-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 1px solid #eee;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    }
+    .project-header {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+    }
+    .project-icon {
+      font-size: 2rem;
+    }
+    .project-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .project-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .project-title a:hover {
+      color: var(--primary);
+    }
+    .project-description {
+      color: var(--gray);
+      margin-bottom: 1rem;
+      min-height: 60px;
+    }
+    .project-meta {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-top: 1rem;
+    }
+    .project-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .language-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 4rem 0;
+      color: var(--gray);
+    }
+    .spinner {
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid var(--primary);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 3rem;
+      color: var(--gray);
+      font-size: 0.9rem;
+      border-top: 1px solid #eee;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .featured-grid, .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🚀 AI Projects Portfolio</h1>
+      <p class="subtitle">Real-world AI systems: from elder care to Mars exploration</p>
+      <div class="nav">
+        <a href="/">← Back to Home</a>
+        <a href="/blog.html">Blog</a>
+        <a href="https://github.com/KlementMultiverse">GitHub</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="featured-projects">
+        <h2>⭐ Featured Projects</h2>
+        <div class="featured-grid">
+          <div class="featured-card">
+            <h3>🛡️ Elder Guardian</h3>
+            <p>AI-powered elderly fall detection system using NVIDIA Isaac Sim with real-time alerts and autonomous response</p>
+            <div class="tech-stack">
+              <span class="tech-badge">NVIDIA Isaac</span>
+              <span class="tech-badge">Computer Vision</span>
+              <span class="tech-badge">Python</span>
+            </div>
+            <a href="https://github.com/KlementMultiverse/elder-guardian" target="_blank">View Project →</a>
+          </div>
+
+          <div class="featured-card">
+            <h3>💼 Finexa</h3>
+            <p>Autonomous Financial Intelligence System - AI-powered document processing for fintech with RAG pipeline</p>
+            <div class="tech-stack">
+              <span class="tech-badge">RAG</span>
+              <span class="tech-badge">LangChain</span>
+              <span class="tech-badge">OpenAI</span>
+            </div>
+            <a href="https://github.com/KlementMultiverse/finexa" target="_blank">View Project →</a>
+          </div>
+
+          <div class="featured-card">
+            <h3>🚀 Mars Mission Isaac</h3>
+            <p>NASA-grade Mars Sample Return demo - 100% online simulation with autonomous robotics</p>
+            <div class="tech-stack">
+              <span class="tech-badge">NVIDIA Isaac</span>
+              <span class="tech-badge">Robotics</span>
+              <span class="tech-badge">Simulation</span>
+            </div>
+            <a href="https://github.com/KlementMultiverse/mars-mission-isaac" target="_blank">View Project →</a>
+          </div>
+
+          <div class="featured-card">
+            <h3>🎭 MYSAVA</h3>
+            <p>Virtual influencer with interactive mode and face sync with audio - full AI-powered digital human</p>
+            <div class="tech-stack">
+              <span class="tech-badge">Multimodal AI</span>
+              <span class="tech-badge">TTS</span>
+              <span class="tech-badge">Wav2Lip</span>
+            </div>
+            <a href="https://github.com/KlementMultiverse/Mysava" target="_blank">View Project →</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="all-projects">
+        <h2>📦 All Projects</h2>
+        <div id="loading" class="loading">
+          <div class="spinner"></div>
+          <p>Loading projects from GitHub...</p>
+        </div>
+        <div id="projects" class="projects-grid" style="display: none;"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 Klement Gunndu | GenAI Engineer<br>
+      Explore more at <a href="https://github.com/KlementMultiverse">GitHub</a></p>
+    </footer>
+  </div>
+
+  <script>
+    const languageColors = {
+      'Python': '#3572A5',
+      'JavaScript': '#f1e05a',
+      'TypeScript': '#3178c6',
+      'HTML': '#e34c26',
+      'CSS': '#563d7c',
+      'Jupyter Notebook': '#DA5B0B'
+    };
+
+    async function fetchProjects() {
+      try {
+        const response = await fetch('https://api.github.com/users/KlementMultiverse/repos?per_page=100&sort=updated');
+        const repos = await response.json();
+
+        // Filter out forks and sort by stars
+        const projects = repos
+          .filter(repo => !repo.fork)
+          .sort((a, b) => b.stargazers_count - a.stargazers_count);
+
+        renderProjects(projects);
+      } catch (error) {
+        console.error('Error fetching projects:', error);
+        document.getElementById('loading').innerHTML =
+          '<p style="color: #ef4444;">Error loading projects. Please refresh.</p>';
+      }
+    }
+
+    function renderProjects(repos) {
+      const container = document.getElementById('projects');
+      const loading = document.getElementById('loading');
+
+      loading.style.display = 'none';
+      container.style.display = 'grid';
+
+      container.innerHTML = repos.map(repo => `
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-icon">📦</span>
+            <h3 class="project-title">
+              <a href="${repo.html_url}" target="_blank" rel="noopener">${repo.name}</a>
+            </h3>
+          </div>
+          <p class="project-description">${repo.description || 'No description available'}</p>
+          <div class="project-meta">
+            ${repo.language ? `
+              <span>
+                <span class="language-dot" style="background: ${languageColors[repo.language] || '#ccc'}"></span>
+                ${repo.language}
+              </span>
+            ` : ''}
+            <span>⭐ ${repo.stargazers_count}</span>
+            <span>🍴 ${repo.forks_count}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Load projects on page load
+    fetchProjects();
+  </script>
+</body>
+</html>
