@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LightBoost AI - Ultra-Fast AI Personal Assistant Demo</title>
+  <meta name="description" content="Experience the future of AI personal assistants. Ultra-fast, ultra-secure voice agent with < 1 second response time.">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    :root {
+      --primary: #6366f1;
+      --secondary: #8b5cf6;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --accent: #10b981;
+      --glow: #a78bfa;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', -apple-system, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* Navigation */
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      transition: all 0.3s;
+    }
+
+    .nav a:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 3rem 0 2rem;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.1;
+      font-weight: 800;
+      text-shadow: 0 0 20px rgba(167, 139, 250, 0.5);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 20px rgba(167, 139, 250, 0.5); }
+      to { text-shadow: 0 0 30px rgba(167, 139, 250, 0.8); }
+    }
+
+    .tagline {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #e0e7ff;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: #c7d2fe;
+      margin-bottom: 2rem;
+    }
+
+    /* Content Section */
+    .content {
+      background: white;
+      border-radius: 20px;
+      padding: 3rem;
+      margin: 2rem 0;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    .demo-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0 3rem;
+    }
+
+    .demo-card {
+      background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+      border-radius: 15px;
+      padding: 2.5rem;
+      border: 2px solid #e2e8f0;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .demo-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    .demo-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+      border-color: var(--primary);
+    }
+
+    .demo-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    .demo-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+
+    .demo-card p {
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .demo-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
+    .demo-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+    }
+
+    .phone-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+
+    .feature {
+      background: #f8fafc;
+      padding: 1.5rem;
+      border-radius: 10px;
+      border-left: 3px solid var(--primary);
+    }
+
+    .feature h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+
+    .feature p {
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 2rem 0;
+      padding: 2rem;
+      background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+      border-radius: 15px;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      display: block;
+    }
+
+    .stat-label {
+      color: var(--gray);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+      position: relative;
+      padding-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+
+    .tech-badge {
+      background: var(--primary);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, #fff9e6 0%, #ffedd5 100%);
+      border-left: 4px solid #f59e0b;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin: 2rem 0;
+    }
+
+    .highlight h3 {
+      color: #f59e0b;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .tagline {
+        font-size: 1.1rem;
+      }
+      .demo-options {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Navigation -->
+    <div class="nav">
+      <a href="index.html">← Back to Portfolio</a>
+      <a href="projects.html">Projects</a>
+      <a href="blog.html">Blog</a>
+      <a href="ai-playground.html">AI Playground</a>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+      <h1>⚡ LightBoost AI</h1>
+      <p class="tagline">Your Ultra-Fast AI Personal Assistant</p>
+      <p class="subtitle">Experience < 1 second response time • Natural voice • Enterprise security</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+      <h2>Try It Now - Choose Your Experience</h2>
+
+      <!-- Demo Options -->
+      <div class="demo-options">
+        <!-- Phone Demo -->
+        <div class="demo-card">
+          <div class="demo-icon">📞</div>
+          <h3>Call the AI</h3>
+          <p>Experience real-time voice AI over a phone call. Natural conversation, intelligent responses, and seamless handling of your requests.</p>
+          <div class="phone-number">+1 (959) 207-1894</div>
+          <p style="font-size: 0.9rem; color: #888; margin-top: 0.5rem;">Call now from any phone</p>
+        </div>
+
+        <!-- Web Demo -->
+        <div class="demo-card">
+          <div class="demo-icon">💬</div>
+          <h3>Web Voice Chat</h3>
+          <p>Talk to the AI directly in your browser. Ultra-fast streaming responses with professional voice synthesis.</p>
+          <a href="https://edwin-multilaciniate-ching.ngrok-free.dev/demo/realtime.html" class="demo-btn" target="_blank">Start Talking</a>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-value">< 1s</span>
+          <span class="stat-label">Response Time</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">99.9%</span>
+          <span class="stat-label">Uptime</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">100%</span>
+          <span class="stat-label">AI-Powered</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">$0</span>
+          <span class="stat-label">Your Infrastructure Cost</span>
+        </div>
+      </div>
+
+      <!-- Features -->
+      <h2>Features That Set Us Apart</h2>
+      <div class="features">
+        <div class="feature">
+          <h4>⚡ Ultra-Fast Streaming</h4>
+          <p>Groq LLM + ElevenLabs WebSocket for instant responses</p>
+        </div>
+        <div class="feature">
+          <h4>🎤 Natural Voice</h4>
+          <p>Choose from 4 premium ElevenLabs voices</p>
+        </div>
+        <div class="feature">
+          <h4>📧 Email Management</h4>
+          <p>Read, search, and send emails via Gmail MCP</p>
+        </div>
+        <div class="feature">
+          <h4>📅 Calendar Integration</h4>
+          <p>Schedule meetings and check availability</p>
+        </div>
+        <div class="feature">
+          <h4>🚗 Uber Integration</h4>
+          <p>Book rides with voice commands</p>
+        </div>
+        <div class="feature">
+          <h4>🛡️ Smart Spam Blocking</h4>
+          <p>AI-powered threat detection and call screening</p>
+        </div>
+        <div class="feature">
+          <h4>👥 Contact Intelligence</h4>
+          <p>Personalized greetings based on caller relationships</p>
+        </div>
+        <div class="feature">
+          <h4>🔒 Enterprise Security</h4>
+          <p>Content filtering and guardrails built-in</p>
+        </div>
+      </div>
+
+      <!-- Business Model Highlight -->
+      <div class="highlight">
+        <h3>💰 Revolutionary Business Model</h3>
+        <p><strong>Deploy on YOUR cloud (GCP/AWS) • Use YOUR free credits • Zero infrastructure cost to you</strong></p>
+        <p style="margin-top: 1rem;">Pay only $29-199/month subscription. We provide the software, you provide the cloud account. Your AI assistant runs on YOUR infrastructure using YOUR $300-400 free credits.</p>
+      </div>
+
+      <!-- Tech Stack -->
+      <h2>Powered By Industry-Leading Tech</h2>
+      <div class="tech-stack">
+        <span class="tech-badge">Groq llama-3.3-70b</span>
+        <span class="tech-badge">ElevenLabs Turbo v2.5</span>
+        <span class="tech-badge">FastAPI + WebSocket</span>
+        <span class="tech-badge">Twilio Voice</span>
+        <span class="tech-badge">Model Context Protocol</span>
+        <span class="tech-badge">Docker + GCP/AWS</span>
+      </div>
+
+      <!-- What Happens Section -->
+      <h2>What Happens When You Try It?</h2>
+      <div class="features">
+        <div class="feature">
+          <h4>1. Instant Connection</h4>
+          <p>Call or click to start - AI answers immediately</p>
+        </div>
+        <div class="feature">
+          <h4>2. Natural Conversation</h4>
+          <p>Speak naturally, the AI understands context</p>
+        </div>
+        <div class="feature">
+          <h4>3. Smart Actions</h4>
+          <p>AI can check email, calendar, book rides, and more</p>
+        </div>
+        <div class="feature">
+          <h4>4. Lightning Fast</h4>
+          <p>Streaming responses in under 1 second</p>
+        </div>
+      </div>
+
+      <!-- Call to Action -->
+      <div style="text-align: center; margin: 3rem 0;">
+        <h2>Ready to Build Your Own?</h2>
+        <p style="font-size: 1.2rem; color: var(--gray); margin: 1rem 0 2rem;">
+          This entire system was built in 100% AI-assisted development.<br>
+          Deploy your own AI assistant on your cloud in minutes.
+        </p>
+        <a href="mailto:klement@example.com" class="demo-btn" style="font-size: 1.2rem; padding: 1.2rem 2.5rem;">
+          Get Started Today
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="text-align: center; color: white; margin: 2rem 0; padding: 2rem;">
+      <p style="font-size: 0.9rem; opacity: 0.8;">
+        Built with 🤖 by <a href="index.html" style="color: white; text-decoration: underline;">Klement Gunndu</a> × Claude Sonnet 4.5
+      </p>
+      <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0.5rem;">
+        100% AI-Assisted Development • Zero Infrastructure Cost Model • Enterprise-Ready
+      </p>
+    </div>
+  </div>
+</body>
+</html>
