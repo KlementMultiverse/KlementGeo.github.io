@@ -40,7 +40,11 @@
     "url": "https://klementmultiverse.github.io",
     "sameAs": [
       "https://github.com/KlementMultiverse",
-      "https://www.linkedin.com/in/klement-gunndu-601872351"
+      "https://www.linkedin.com/in/klement-gunndu-601872351",
+      "https://reddit.com/user/KlementMultiverse",
+      "https://dev.to/klementmultiverse",
+      "https://hashnode.com/@klementmultiverse",
+      "https://klementmultiverse.substack.com"
     ],
     "jobTitle": "AI/ML Engineer",
     "description": "AI Engineer specializing in Multi-Agent Systems, RAG, and Production AI",
@@ -70,6 +74,9 @@
 
   <link rel="canonical" href="https://klementmultiverse.github.io/" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+  <!-- Font Awesome for Social Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
     :root {
@@ -1334,6 +1341,95 @@
       .projects-grid { grid-template-columns: 1fr; }
       .mission-statement { padding: 1rem 1.5rem; }
     }
+
+    /* 3D Social Cube Styles */
+    .social-cubes {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+      perspective: 1000px;
+    }
+
+    .cube-container {
+      width: 80px;
+      height: 80px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: rotateCube 6s infinite ease-in-out;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .cube-container:hover {
+      animation-play-state: paused;
+      transform: scale(1.2);
+    }
+
+    .cube {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+    }
+
+    .cube-face {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      border: 3px solid var(--gold);
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      transition: all 0.3s ease;
+    }
+
+    .cube-face:hover {
+      box-shadow: 0 0 40px rgba(212, 175, 55, 0.8);
+      background: linear-gradient(135deg, var(--gold) 0%, #FFD700 100%);
+      color: var(--primary);
+    }
+
+    .cube-face.front  { transform: rotateY(0deg) translateZ(40px); }
+    .cube-face.back   { transform: rotateY(180deg) translateZ(40px); }
+    .cube-face.right  { transform: rotateY(90deg) translateZ(40px); }
+    .cube-face.left   { transform: rotateY(-90deg) translateZ(40px); }
+    .cube-face.top    { transform: rotateX(90deg) translateZ(40px); }
+    .cube-face.bottom { transform: rotateX(-90deg) translateZ(40px); }
+
+    /* Individual cube colors */
+    .cube-linkedin .cube-face { background: linear-gradient(135deg, #0077B5 0%, #00A0DC 100%); }
+    .cube-github .cube-face { background: linear-gradient(135deg, #181717 0%, #4A4A4A 100%); }
+    .cube-reddit .cube-face { background: linear-gradient(135deg, #FF4500 0%, #FF6A33 100%); }
+    .cube-dev .cube-face { background: linear-gradient(135deg, #0A0A0A 0%, #333333 100%); }
+    .cube-hashnode .cube-face { background: linear-gradient(135deg, #2962FF 0%, #5C8BFF 100%); }
+    .cube-substack .cube-face { background: linear-gradient(135deg, #FF6719 0%, #FF8533 100%); }
+
+    @keyframes rotateCube {
+      0% { transform: rotateX(0deg) rotateY(0deg); }
+      25% { transform: rotateX(180deg) rotateY(90deg); }
+      50% { transform: rotateX(180deg) rotateY(180deg); }
+      75% { transform: rotateX(0deg) rotateY(270deg); }
+      100% { transform: rotateX(0deg) rotateY(360deg); }
+    }
+
+    @media (max-width: 768px) {
+      .social-cubes { gap: 1.5rem; }
+      .cube-container { width: 60px; height: 60px; }
+      .cube-face { width: 60px; height: 60px; font-size: 1.8rem; }
+      .cube-face.front  { transform: rotateY(0deg) translateZ(30px); }
+      .cube-face.back   { transform: rotateY(180deg) translateZ(30px); }
+      .cube-face.right  { transform: rotateY(90deg) translateZ(30px); }
+      .cube-face.left   { transform: rotateY(-90deg) translateZ(30px); }
+      .cube-face.top    { transform: rotateX(90deg) translateZ(30px); }
+      .cube-face.bottom { transform: rotateX(-90deg) translateZ(30px); }
+    }
   </style>
 </head>
 <body>
@@ -1644,11 +1740,86 @@
   <!-- CTA -->
   <div class="cta-section">
     <h2 style="color: white; margin-bottom: 1rem; font-family: Georgia, serif;">Open to Opportunities</h2>
-    <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--ivory); font-family: 'Segoe UI', sans-serif;">
+    <p style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--ivory); font-family: 'Segoe UI', sans-serif;">
       AI/ML Engineering • Multi-Agent Systems • RAG Specialist • DevOps • Full-Stack with AI
     </p>
-    <a href="https://www.linkedin.com/in/klement-gunndu-601872351" class="btn" target="_blank">Connect on LinkedIn</a>
-    <a href="https://github.com/KlementMultiverse" class="btn" target="_blank">View GitHub</a>
+    <p style="font-size: 1rem; margin-bottom: 2rem; color: var(--gold); font-family: 'Segoe UI', sans-serif; font-weight: 600;">
+      Connect With Me - Click the 3D Cubes Below
+    </p>
+
+    <div class="social-cubes">
+      <!-- LinkedIn Cube -->
+      <a href="https://www.linkedin.com/in/klement-gunndu-601872351" target="_blank" class="cube-container cube-linkedin" title="LinkedIn">
+        <div class="cube">
+          <div class="cube-face front"><i class="fab fa-linkedin-in"></i></div>
+          <div class="cube-face back"><i class="fab fa-linkedin-in"></i></div>
+          <div class="cube-face right"><i class="fab fa-linkedin-in"></i></div>
+          <div class="cube-face left"><i class="fab fa-linkedin-in"></i></div>
+          <div class="cube-face top"><i class="fab fa-linkedin-in"></i></div>
+          <div class="cube-face bottom"><i class="fab fa-linkedin-in"></i></div>
+        </div>
+      </a>
+
+      <!-- GitHub Cube -->
+      <a href="https://github.com/KlementMultiverse" target="_blank" class="cube-container cube-github" title="GitHub">
+        <div class="cube">
+          <div class="cube-face front"><i class="fab fa-github"></i></div>
+          <div class="cube-face back"><i class="fab fa-github"></i></div>
+          <div class="cube-face right"><i class="fab fa-github"></i></div>
+          <div class="cube-face left"><i class="fab fa-github"></i></div>
+          <div class="cube-face top"><i class="fab fa-github"></i></div>
+          <div class="cube-face bottom"><i class="fab fa-github"></i></div>
+        </div>
+      </a>
+
+      <!-- Reddit Cube -->
+      <a href="https://reddit.com/user/KlementMultiverse" target="_blank" class="cube-container cube-reddit" title="Reddit">
+        <div class="cube">
+          <div class="cube-face front"><i class="fab fa-reddit-alien"></i></div>
+          <div class="cube-face back"><i class="fab fa-reddit-alien"></i></div>
+          <div class="cube-face right"><i class="fab fa-reddit-alien"></i></div>
+          <div class="cube-face left"><i class="fab fa-reddit-alien"></i></div>
+          <div class="cube-face top"><i class="fab fa-reddit-alien"></i></div>
+          <div class="cube-face bottom"><i class="fab fa-reddit-alien"></i></div>
+        </div>
+      </a>
+
+      <!-- Dev.to Cube -->
+      <a href="https://dev.to/klementmultiverse" target="_blank" class="cube-container cube-dev" title="Dev.to">
+        <div class="cube">
+          <div class="cube-face front"><i class="fab fa-dev"></i></div>
+          <div class="cube-face back"><i class="fab fa-dev"></i></div>
+          <div class="cube-face right"><i class="fab fa-dev"></i></div>
+          <div class="cube-face left"><i class="fab fa-dev"></i></div>
+          <div class="cube-face top"><i class="fab fa-dev"></i></div>
+          <div class="cube-face bottom"><i class="fab fa-dev"></i></div>
+        </div>
+      </a>
+
+      <!-- Hashnode Cube -->
+      <a href="https://hashnode.com/@klementmultiverse" target="_blank" class="cube-container cube-hashnode" title="Hashnode">
+        <div class="cube">
+          <div class="cube-face front"><i class="fas fa-hashtag"></i></div>
+          <div class="cube-face back"><i class="fas fa-hashtag"></i></div>
+          <div class="cube-face right"><i class="fas fa-hashtag"></i></div>
+          <div class="cube-face left"><i class="fas fa-hashtag"></i></div>
+          <div class="cube-face top"><i class="fas fa-hashtag"></i></div>
+          <div class="cube-face bottom"><i class="fas fa-hashtag"></i></div>
+        </div>
+      </a>
+
+      <!-- Substack Cube -->
+      <a href="https://klementmultiverse.substack.com" target="_blank" class="cube-container cube-substack" title="Substack">
+        <div class="cube">
+          <div class="cube-face front"><i class="fas fa-newspaper"></i></div>
+          <div class="cube-face back"><i class="fas fa-newspaper"></i></div>
+          <div class="cube-face right"><i class="fas fa-newspaper"></i></div>
+          <div class="cube-face left"><i class="fas fa-newspaper"></i></div>
+          <div class="cube-face top"><i class="fas fa-newspaper"></i></div>
+          <div class="cube-face bottom"><i class="fas fa-newspaper"></i></div>
+        </div>
+      </a>
+    </div>
   </div>
 
   <!-- Footer -->
