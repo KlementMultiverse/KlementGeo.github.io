@@ -21,8 +21,6 @@ FEATURED = [
 # You can also mark projects as locked (in development)
 # ========================================
 LOCKED = [
-    "Elder Guardian",
-    "Mars Mission Isaac",
 ]
 
 # ========================================
