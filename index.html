@@ -73,85 +73,158 @@
 
   <style>
     :root {
-      --primary: #6366f1;
-      --secondary: #8b5cf6;
-      --dark: #0f172a;
-      --light: #f8fafc;
-      --gray: #64748b;
-      --accent: #10b981;
-      --glow: #a78bfa;
+      --primary: #0047AB;        /* Deep blue */
+      --secondary: #4A90E2;      /* Sky blue */
+      --gold: #D4AF37;           /* Gold accent */
+      --white: #FFFFFF;
+      --ivory: #FDFDF6;
+      --stone: #E8E4D9;
+      --dark: #1a2332;
+      --gray: #5a6c7d;
+      --light-blue: #E3F2FD;
+      --purple: #6B46C1;
       --locked: #94a3b8;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Segoe UI', -apple-system, sans-serif;
-      line-height: 1.6;
+      font-family: 'Georgia', 'Garamond', serif;
+      line-height: 1.7;
       color: var(--dark);
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--ivory) 100%);
       min-height: 100vh;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(74, 144, 226, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
     }
 
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 2rem 1.5rem;
+      position: relative;
+      z-index: 1;
     }
 
     /* Hero Section */
     .hero {
       text-align: center;
-      padding: 4rem 0 3rem;
-      color: white;
+      padding: 5rem 0 4rem;
+      color: var(--white);
+      position: relative;
+    }
+
+    .hero::before {
+      content: '✦';
+      position: absolute;
+      top: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 3rem;
+      color: var(--gold);
+      animation: twinkle 3s ease-in-out infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+      50% { opacity: 1; transform: translateX(-50%) scale(1.2); }
     }
 
     .hero h1 {
-      font-size: 3.5rem;
+      font-family: 'Georgia', serif;
+      font-size: 4rem;
       margin-bottom: 1rem;
-      line-height: 1.1;
-      font-weight: 800;
-      text-shadow: 0 0 20px rgba(167, 139, 250, 0.5);
-      animation: glow 2s ease-in-out infinite alternate;
+      line-height: 1.2;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+      color: var(--white);
     }
 
-    @keyframes glow {
-      from { text-shadow: 0 0 20px rgba(167, 139, 250, 0.5); }
-      to { text-shadow: 0 0 30px rgba(167, 139, 250, 0.8); }
+    .hero h1::before {
+      content: '⟡ ';
+      color: var(--gold);
+    }
+
+    .hero h1::after {
+      content: ' ⟡';
+      color: var(--gold);
     }
 
     .tagline {
       font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: #e0e7ff;
+      margin-bottom: 1.5rem;
+      color: var(--ivory);
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .mission-statement {
+      max-width: 700px;
+      margin: 2rem auto 1rem;
+      padding: 1.5rem 2rem;
+      background: rgba(255, 255, 255, 0.15);
+      border: 2px solid rgba(212, 175, 55, 0.3);
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--ivory);
     }
 
     .location {
       display: inline-block;
-      background: rgba(255, 255, 255, 0.15);
-      padding: 0.5rem 1.5rem;
+      background: rgba(212, 175, 55, 0.2);
+      padding: 0.6rem 1.8rem;
       border-radius: 50px;
       font-size: 1rem;
-      margin: 0.5rem 0;
-      border: 2px solid rgba(255, 255, 255, 0.2);
+      margin: 1rem 0;
+      border: 2px solid var(--gold);
       backdrop-filter: blur(10px);
+      color: var(--white);
+      font-family: 'Segoe UI', sans-serif;
     }
 
     /* Content Section */
     .content {
-      background: white;
+      background: var(--ivory);
       border-radius: 20px;
-      padding: 3rem;
+      padding: 3.5rem;
       margin: 2rem 0;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(212, 175, 55, 0.1);
+      border: 3px solid var(--stone);
     }
 
     h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: var(--dark);
+      font-family: 'Georgia', serif;
+      font-size: 2.3rem;
+      margin-bottom: 2rem;
+      color: var(--primary);
       position: relative;
-      padding-bottom: 0.5rem;
+      padding-bottom: 1rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+
+    h2::before {
+      content: '✦';
+      color: var(--gold);
+      margin-right: 0.5rem;
     }
 
     h2::after {
@@ -159,29 +232,30 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 60px;
+      width: 100px;
       height: 3px;
-      background: var(--primary);
+      background: linear-gradient(90deg, var(--gold), transparent);
     }
 
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 2rem;
-      margin: 2rem 0;
+      gap: 2.5rem;
+      margin: 2.5rem 0;
     }
 
     .project-card {
-      background: white;
+      background: var(--white);
       border-radius: 15px;
-      padding: 2rem;
-      border: 2px solid #e2e8f0;
-      transition: all 0.3s ease;
+      padding: 2.2rem;
+      border: 2px solid var(--stone);
+      transition: all 0.4s ease;
       position: relative;
       overflow: hidden;
       text-decoration: none;
       color: inherit;
       display: block;
+      box-shadow: 0 4px 15px rgba(0, 71, 171, 0.08);
     }
 
     .project-card::before {
@@ -191,19 +265,22 @@
       left: 0;
       width: 100%;
       height: 4px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      background: linear-gradient(90deg, var(--primary), var(--gold), var(--secondary));
     }
 
     .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
-      border-color: var(--primary);
+      transform: translateY(-8px);
+      box-shadow:
+        0 15px 40px rgba(0, 71, 171, 0.15),
+        0 0 0 2px var(--gold);
+      border-color: var(--gold);
     }
 
     .project-card.locked {
-      opacity: 0.7;
+      opacity: 0.75;
       cursor: not-allowed;
       border-color: var(--locked);
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     }
 
     .project-card.locked::before {
@@ -212,7 +289,7 @@
 
     .project-card.locked:hover {
       transform: none;
-      box-shadow: none;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
       border-color: var(--locked);
     }
 
@@ -224,9 +301,12 @@
     }
 
     .project-card h3 {
-      font-size: 1.4rem;
-      color: var(--dark);
-      margin-bottom: 0.5rem;
+      font-family: 'Georgia', serif;
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
     }
 
     .project-card.locked h3 {
@@ -236,35 +316,40 @@
     .lock-badge {
       background: var(--locked);
       color: white;
-      padding: 0.3rem 0.8rem;
+      padding: 0.4rem 1rem;
       border-radius: 20px;
       font-size: 0.8rem;
       font-weight: 600;
       display: flex;
       align-items: center;
       gap: 0.3rem;
+      font-family: 'Segoe UI', sans-serif;
     }
 
     .project-description {
       color: var(--gray);
-      margin-bottom: 1rem;
-      line-height: 1.6;
+      margin-bottom: 1.2rem;
+      line-height: 1.7;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 0.95rem;
     }
 
     .tech-stack {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1rem;
+      gap: 0.6rem;
+      margin-top: 1.2rem;
     }
 
     .tech-badge {
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: white;
-      padding: 0.3rem 0.8rem;
+      padding: 0.4rem 1rem;
       border-radius: 20px;
       font-size: 0.85rem;
       font-weight: 600;
+      font-family: 'Segoe UI', sans-serif;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .project-card.locked .tech-badge {
@@ -274,75 +359,146 @@
     .stats {
       display: flex;
       justify-content: space-around;
-      margin: 2rem 0;
+      margin: 3rem 0;
       text-align: center;
+      gap: 2rem;
     }
 
     .stat {
       flex: 1;
+      padding: 2rem;
+      background: linear-gradient(135deg, rgba(0, 71, 171, 0.05), rgba(212, 175, 55, 0.05));
+      border-radius: 15px;
+      border: 2px solid var(--stone);
     }
 
     .stat-number {
-      font-size: 3rem;
-      font-weight: 800;
+      font-size: 3.5rem;
+      font-weight: 700;
       color: var(--primary);
       display: block;
+      font-family: 'Georgia', serif;
+    }
+
+    .stat-number::before {
+      content: '✦';
+      font-size: 1.5rem;
+      color: var(--gold);
+      margin-right: 0.5rem;
     }
 
     .stat-label {
       color: var(--gray);
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
+      margin-top: 0.5rem;
+      font-family: 'Segoe UI', sans-serif;
     }
 
     .cta-section {
       text-align: center;
-      padding: 3rem 0;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 4rem 3rem;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--purple) 100%);
       border-radius: 20px;
       margin: 3rem 0;
       color: white;
+      position: relative;
+      overflow: hidden;
+      border: 3px solid var(--gold);
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .cta-section > * {
+      position: relative;
+      z-index: 1;
     }
 
     .btn {
       display: inline-block;
-      background: white;
+      background: var(--white);
       color: var(--primary);
-      padding: 1rem 2.5rem;
+      padding: 1.2rem 3rem;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 700;
       font-size: 1.1rem;
       margin: 1rem 0.5rem;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      font-family: 'Segoe UI', sans-serif;
+      border: 2px solid var(--gold);
     }
 
     .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      transform: scale(1.08) translateY(-2px);
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+      background: var(--gold);
+      color: var(--white);
     }
 
     footer {
       text-align: center;
-      padding: 2rem 0;
-      color: white;
-      font-size: 0.9rem;
+      padding: 3rem 0;
+      color: var(--white);
+      font-size: 0.95rem;
+      font-family: 'Segoe UI', sans-serif;
     }
 
     .section-divider {
-      border-top: 2px solid #e2e8f0;
-      margin: 3rem 0 2rem;
-      padding-top: 2rem;
+      border-top: 3px solid var(--stone);
+      margin: 4rem 0 3rem;
+      padding-top: 3rem;
+      position: relative;
+    }
+
+    .section-divider::before {
+      content: '✦';
+      position: absolute;
+      top: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--ivory);
+      padding: 0 1rem;
+      color: var(--gold);
+      font-size: 1.5rem;
+    }
+
+    .wisdom-quote {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem 2.5rem;
+      background: linear-gradient(135deg, rgba(0, 71, 171, 0.05), rgba(212, 175, 55, 0.05));
+      border-left: 4px solid var(--gold);
+      border-radius: 10px;
+      font-style: italic;
+      color: var(--dark);
+      font-size: 1.1rem;
+      line-height: 1.9;
     }
 
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.5rem; }
       .tagline { font-size: 1.2rem; }
       .content { padding: 2rem 1.5rem; }
-      .stats { flex-direction: column; gap: 2rem; }
+      .stats { flex-direction: column; gap: 1.5rem; }
       .projects-grid { grid-template-columns: 1fr; }
+      .mission-statement { padding: 1rem 1.5rem; }
     }
   </style>
 </head>
@@ -351,8 +507,13 @@
   <!-- Hero Section -->
   <div class="hero">
     <div class="container">
-      <h1>🤖 Klement Gunndu</h1>
+      <h1>Klement Gunndu</h1>
       <p class="tagline">AI/ML Engineer | Multi-Agent Systems & RAG Expert</p>
+
+      <div class="mission-statement">
+        Building intelligent systems with wisdom and purpose. Combining ancient principles of craftsmanship with modern innovation to create technology that serves humanity.
+      </div>
+
       <div class="location">
         📍 USA | Open to Remote & Relocation
       </div>
@@ -379,8 +540,12 @@
         </div>
       </div>
 
+      <div class="wisdom-quote">
+        "Where there is no vision, the people perish. With knowledge and understanding, we build systems that endure."
+      </div>
+
       <!-- Featured Projects -->
-      <h2>🚀 Featured Projects</h2>
+      <h2>Featured Projects</h2>
       <div class="projects-grid">
 
         <!-- RAG Mastery Hub -->
@@ -422,7 +587,7 @@
             <h3>👴 Elder Guardian</h3>
           </div>
           <p class="project-description">
-            AI-powered elderly fall detection system using NVIDIA Isaac Sim. Real-time monitoring and alerts for elderly care facilities. Advanced computer vision and pose estimation.
+            AI-powered elderly care system using NVIDIA Isaac Sim. Real-time monitoring and protection for elderly care facilities. Advanced computer vision and pose estimation technology.
           </p>
           <div class="tech-stack">
             <span class="tech-badge">NVIDIA AI</span>
@@ -437,7 +602,7 @@
             <h3>🚀 Mars Mission Isaac</h3>
           </div>
           <p class="project-description">
-            NASA-grade Mars Sample Return mission demo built with NVIDIA Isaac Sim. Autonomous navigation, sample collection, and return mission simulation. 100% online demonstration.
+            Space exploration demo built with NVIDIA Isaac Sim. Autonomous navigation, sample collection, and return mission simulation. Demonstrating advanced robotics capabilities.
           </p>
           <div class="tech-stack">
             <span class="tech-badge">NVIDIA Isaac</span>
@@ -452,7 +617,7 @@
             <h3>📊 NVIDIA AI Report Generator</h3>
           </div>
           <p class="project-description">
-            AI Research Agent using NVIDIA NIM + Tavily. Auto-generates comprehensive markdown reports from research queries. Production-ready research automation.
+            AI Research Agent using NVIDIA NIM + Tavily. Auto-generates comprehensive markdown reports from research queries. Production-ready research automation for knowledge synthesis.
           </p>
           <div class="tech-stack">
             <span class="tech-badge">NVIDIA NIM</span>
@@ -467,7 +632,7 @@
             <h3>💰 Finexa</h3>
           </div>
           <p class="project-description">
-            Autonomous Financial Intelligence System. AI-powered document processing, financial analysis, and intelligent insights. Production-grade financial automation.
+            Autonomous Financial Intelligence System. AI-powered document processing, financial analysis, and intelligent insights. Production-grade financial automation with precision.
           </p>
           <div class="tech-stack">
             <span class="tech-badge">AI Agents</span>
@@ -482,7 +647,7 @@
             <h3>🎭 Mysava</h3>
           </div>
           <p class="project-description">
-            Virtual influencer with interactive mode and face sync with audio. Real-time lip-sync, emotion detection, and conversational AI. Next-gen virtual assistant.
+            Virtual presence with interactive mode and audio synchronization. Real-time expression synthesis, emotion detection, and conversational AI. Next-generation digital interaction.
           </p>
           <div class="tech-stack">
             <span class="tech-badge">Computer Vision</span>
@@ -497,7 +662,7 @@
             <h3>📚 API Doc Generator</h3>
           </div>
           <p class="project-description">
-            Auto-generate beautiful API documentation from code. Smart parsing, Markdown/HTML output, CI/CD integration. Developer productivity tool.
+            Auto-generate beautiful API documentation from code. Smart parsing, Markdown/HTML output, CI/CD integration. Developer productivity tool for efficient documentation.
           </p>
           <div class="tech-stack">
             <span class="tech-badge">Python</span>
@@ -512,7 +677,7 @@
             <h3>🤖 Customer Support Agent</h3>
           </div>
           <p class="project-description">
-            AI Customer Support Agent using OpenAI and ReAct pattern. Intelligent ticket routing, automated responses, and context-aware support.
+            AI Customer Support Agent using OpenAI and ReAct pattern. Intelligent routing, automated responses, and context-aware support for enhanced customer experience.
           </p>
           <div class="tech-stack">
             <span class="tech-badge">OpenAI</span>
@@ -527,7 +692,7 @@
             <h3>🏗️ RAG Microservices</h3>
           </div>
           <p class="project-description">
-            Learn to build RAG with microservices architecture. Scalable, production-ready RAG system with Docker, Kubernetes, and modern DevOps practices.
+            Learn to build RAG with microservices architecture. Scalable, production-ready RAG system with Docker, Kubernetes, and modern DevOps practices for enterprise deployment.
           </p>
           <div class="tech-stack">
             <span class="tech-badge">Microservices</span>
@@ -540,7 +705,7 @@
 
       <!-- Private Projects Section -->
       <div class="section-divider">
-        <h2>🔒 Private Projects (In Development)</h2>
+        <h2>Private Projects (In Development)</h2>
         <div class="projects-grid">
 
           <div class="project-card locked">
@@ -549,7 +714,7 @@
               <span class="lock-badge">🔒 Private</span>
             </div>
             <p class="project-description">
-              9-agent pipeline for automated blog generation and multi-platform publishing. AI-powered content creation with trend monitoring.
+              9-agent pipeline for automated content generation and multi-platform publishing. AI-powered content creation with trend monitoring and intelligent distribution.
             </p>
             <div class="tech-stack">
               <span class="tech-badge">Multi-Agent</span>
@@ -564,7 +729,7 @@
               <span class="lock-badge">🔒 Private</span>
             </div>
             <p class="project-description">
-              Master automation hub with 12 automation tools. GitHub repo management, project launcher, redesign agents, and social media automation.
+              Master automation hub with 12 automation tools. Repository management, project launcher, redesign agents, and social media automation for streamlined workflows.
             </p>
             <div class="tech-stack">
               <span class="tech-badge">DevOps</span>
@@ -579,7 +744,7 @@
               <span class="lock-badge">🔒 Private</span>
             </div>
             <p class="project-description">
-              Automated daily project idea generation and implementation. AI-powered project creation with GitHub integration and deployment automation.
+              Automated daily project idea generation and implementation. AI-powered project creation with repository integration and deployment automation for continuous innovation.
             </p>
             <div class="tech-stack">
               <span class="tech-badge">AI Agents</span>
@@ -593,7 +758,7 @@
 
       <!-- Tech Stack -->
       <div class="section-divider">
-        <h2>🛠️ Tech Stack</h2>
+        <h2>Tech Stack</h2>
         <div class="tech-stack" style="justify-content: center;">
           <span class="tech-badge">Multi-Agent Systems</span>
           <span class="tech-badge">RAG Pipelines</span>
@@ -620,8 +785,8 @@
 
     <!-- CTA -->
     <div class="cta-section">
-      <h2 style="color: white; margin-bottom: 1rem;">💼 Open to Opportunities</h2>
-      <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #e0e7ff;">
+      <h2 style="color: white; margin-bottom: 1rem; font-family: Georgia, serif;">Open to Opportunities</h2>
+      <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--ivory); font-family: 'Segoe UI', sans-serif;">
         AI/ML Engineering • Multi-Agent Systems • RAG Specialist • DevOps • Full-Stack with AI
       </p>
       <a href="https://www.linkedin.com/in/klement-gunndu-601872351" class="btn" target="_blank">Connect on LinkedIn</a>
@@ -633,8 +798,8 @@
   <footer>
     <div class="container">
       <p>© 2025 Klement Gunndu | AI/ML Engineer | Multi-Agent Systems & RAG Expert</p>
-      <p style="margin-top: 0.5rem; opacity: 0.8;">
-        Built with modern web technologies | Optimized for search engines
+      <p style="margin-top: 0.5rem; opacity: 0.9;">
+        Built with wisdom and purpose | Optimized for search engines
       </p>
     </div>
   </footer>
