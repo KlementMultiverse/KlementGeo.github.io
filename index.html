@@ -3,9 +3,74 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Klement Gunndu × AI | Building the Future Together</title>
-  <meta name="description" content="AI Engineer leveraging human-AI collaboration to build production systems. Multi-agent systems, automation, and FAANG-level projects.">
+
+  <!-- SEO Meta Tags -->
+  <title>Klement Gunndu - AI Engineer | Multi-Agent Systems & RAG Expert</title>
+  <meta name="description" content="AI/ML Engineer specializing in Multi-Agent Systems, RAG pipelines, and Production AI. Building intelligent systems with LangChain, AutoGen, CrewAI. Based in USA, Open to Remote & Relocation.">
+  <meta name="keywords" content="AI Engineer, Machine Learning, Multi-Agent Systems, RAG, LangChain, AutoGen, CrewAI, Python, FastAPI, DevOps, AWS, Docker, Kubernetes, NVIDIA AI, Production AI">
+  <meta name="author" content="Klement Gunndu">
+  <meta name="robots" content="index, follow">
+
+  <!-- Geo Location Tags -->
+  <meta name="geo.region" content="US" />
+  <meta name="geo.placename" content="United States" />
+  <meta name="geo.position" content="37.7749;-122.4194" />
+  <meta name="ICBM" content="37.7749, -122.4194" />
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://klementmultiverse.github.io/" />
+  <meta property="og:title" content="Klement Gunndu - AI Engineer | Multi-Agent Systems Expert" />
+  <meta property="og:description" content="AI/ML Engineer building production-grade multi-agent systems, RAG pipelines, and intelligent automation. Open to opportunities." />
+  <meta property="og:image" content="https://klementmultiverse.github.io/og-image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://klementmultiverse.github.io/" />
+  <meta name="twitter:title" content="Klement Gunndu - AI Engineer | Multi-Agent Systems" />
+  <meta name="twitter:description" content="Building production AI systems with LangChain, AutoGen, CrewAI. Multi-agent systems & RAG expert." />
+  <meta name="twitter:image" content="https://klementmultiverse.github.io/og-image.png" />
+
+  <!-- Structured Data (JSON-LD) for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Klement Gunndu",
+    "url": "https://klementmultiverse.github.io",
+    "sameAs": [
+      "https://github.com/KlementMultiverse",
+      "https://www.linkedin.com/in/klement-gunndu-601872351"
+    ],
+    "jobTitle": "AI/ML Engineer",
+    "description": "AI Engineer specializing in Multi-Agent Systems, RAG, and Production AI",
+    "knowsAbout": [
+      "Artificial Intelligence",
+      "Machine Learning",
+      "Multi-Agent Systems",
+      "RAG (Retrieval-Augmented Generation)",
+      "LangChain",
+      "AutoGen",
+      "CrewAI",
+      "Python",
+      "FastAPI",
+      "DevOps",
+      "Docker",
+      "Kubernetes",
+      "AWS",
+      "GCP",
+      "Azure"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "US"
+    }
+  }
+  </script>
+
+  <link rel="canonical" href="https://klementmultiverse.github.io/" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
   <style>
     :root {
       --primary: #6366f1;
@@ -15,6 +80,7 @@
       --gray: #64748b;
       --accent: #10b981;
       --glow: #a78bfa;
+      --locked: #94a3b8;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -56,17 +122,17 @@
 
     .tagline {
       font-size: 1.5rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
       color: #e0e7ff;
     }
 
-    .human-ai {
+    .location {
       display: inline-block;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.15);
       padding: 0.5rem 1.5rem;
       border-radius: 50px;
-      font-size: 1.2rem;
-      margin: 1rem 0 2rem;
+      font-size: 1rem;
+      margin: 0.5rem 0;
       border: 2px solid rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(10px);
     }
@@ -78,14 +144,6 @@
       padding: 3rem;
       margin: 2rem 0;
       box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    }
-
-    .philosophy {
-      background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
-      border-left: 4px solid var(--primary);
-      padding: 1.5rem;
-      margin: 2rem 0;
-      border-radius: 10px;
     }
 
     h2 {
@@ -106,14 +164,14 @@
       background: var(--primary);
     }
 
-    .grid {
+    .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
       gap: 2rem;
       margin: 2rem 0;
     }
 
-    .card {
+    .project-card {
       background: white;
       border-radius: 15px;
       padding: 2rem;
@@ -121,9 +179,12 @@
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
 
-    .card::before {
+    .project-card::before {
       content: '';
       position: absolute;
       top: 0;
@@ -133,32 +194,106 @@
       background: linear-gradient(90deg, var(--primary), var(--secondary));
     }
 
-    .card:hover {
+    .project-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
       border-color: var(--primary);
     }
 
-    .card h3 {
-      font-size: 1.4rem;
+    .project-card.locked {
+      opacity: 0.7;
+      cursor: not-allowed;
+      border-color: var(--locked);
+    }
+
+    .project-card.locked::before {
+      background: linear-gradient(90deg, var(--locked), var(--gray));
+    }
+
+    .project-card.locked:hover {
+      transform: none;
+      box-shadow: none;
+      border-color: var(--locked);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
       margin-bottom: 1rem;
+    }
+
+    .project-card h3 {
+      font-size: 1.4rem;
       color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card.locked h3 {
+      color: var(--locked);
+    }
+
+    .lock-badge {
+      background: var(--locked);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .project-description {
+      color: var(--gray);
+      margin-bottom: 1rem;
+      line-height: 1.6;
     }
 
     .tech-stack {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      margin: 1.5rem 0;
+      margin-top: 1rem;
     }
 
     .tech-badge {
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: white;
-      padding: 0.4rem 1rem;
+      padding: 0.3rem 0.8rem;
       border-radius: 20px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 600;
+    }
+
+    .project-card.locked .tech-badge {
+      background: var(--locked);
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .stat {
+      flex: 1;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--primary);
+      display: block;
+    }
+
+    .stat-label {
+      color: var(--gray);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .cta-section {
@@ -189,31 +324,6 @@
       box-shadow: 0 6px 20px rgba(0,0,0,0.3);
     }
 
-    .stats {
-      display: flex;
-      justify-content: space-around;
-      margin: 2rem 0;
-      text-align: center;
-    }
-
-    .stat {
-      flex: 1;
-    }
-
-    .stat-number {
-      font-size: 3rem;
-      font-weight: 800;
-      color: var(--primary);
-      display: block;
-    }
-
-    .stat-label {
-      color: var(--gray);
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
     footer {
       text-align: center;
       padding: 2rem 0;
@@ -221,35 +331,10 @@
       font-size: 0.9rem;
     }
 
-    .highlight {
-      background: linear-gradient(135deg, #667eea15, #764ba215);
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-      font-weight: 600;
-      color: var(--primary);
-    }
-
-    .nav {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin: 2rem 0;
-    }
-
-    .nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 0.5rem 1.5rem;
-      border-radius: 50px;
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
-    }
-
-    .nav a:hover {
-      background: rgba(255,255,255,0.2);
-      transform: translateY(-2px);
+    .section-divider {
+      border-top: 2px solid #e2e8f0;
+      margin: 3rem 0 2rem;
+      padding-top: 2rem;
     }
 
     @media (max-width: 768px) {
@@ -257,6 +342,7 @@
       .tagline { font-size: 1.2rem; }
       .content { padding: 2rem 1.5rem; }
       .stats { flex-direction: column; gap: 2rem; }
+      .projects-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -265,18 +351,10 @@
   <!-- Hero Section -->
   <div class="hero">
     <div class="container">
-      <h1>🤖 Klement Gunndu × AI</h1>
-      <p class="tagline">Building the Future Through Human-AI Collaboration</p>
-      <div class="human-ai">
-        💡 Human Creativity + 🤖 AI Capability = ⚡ Exponential Results
-      </div>
-
-      <div class="nav">
-        <a href="projects.html">Projects</a>
-        <a href="blog.html">Blog</a>
-        <a href="ai-playground.html">AI Playground</a>
-        <a href="lightboost-demo.html" style="background: rgba(255,255,255,0.15); border-radius: 5px;">⚡ LightBoost Demo</a>
-        <a href="https://github.com/KlementMultiverse" target="_blank">GitHub</a>
+      <h1>🤖 Klement Gunndu</h1>
+      <p class="tagline">AI/ML Engineer | Multi-Agent Systems & RAG Expert</p>
+      <div class="location">
+        📍 USA | Open to Remote & Relocation
       </div>
     </div>
   </div>
@@ -285,118 +363,278 @@
   <div class="container">
     <div class="content">
 
-      <!-- Philosophy -->
-      <div class="philosophy">
-        <h2>🧠 The Philosophy</h2>
-        <p style="font-size: 1.1rem; line-height: 1.8;">
-          I don't just <em>use</em> AI—I <strong>collaborate</strong> with it. Every project here demonstrates that
-          <span class="highlight">human creativity + AI capability = exponential productivity</span>.
-          Where humans provide strategy and vision, AI handles implementation and iteration. Together, we build in
-          <strong>days what takes others months</strong>.
-        </p>
-      </div>
-
       <!-- Stats -->
       <div class="stats">
         <div class="stat">
-          <span class="stat-number">15+</span>
-          <span class="stat-label">Production Repos</span>
+          <span class="stat-number">10+</span>
+          <span class="stat-label">Production Projects</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">5</span>
+          <span class="stat-label">AI Frameworks</span>
         </div>
         <div class="stat">
           <span class="stat-number">100%</span>
-          <span class="stat-label">AI-Collaborated</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">10x</span>
-          <span class="stat-label">Faster Building</span>
+          <span class="stat-label">Production-Ready</span>
         </div>
       </div>
 
-      <!-- What I Build -->
-      <h2>🚀 What I Build</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>🤖 Multi-Agent AI Systems</h3>
-          <p>Building intelligent systems where multiple AI agents collaborate to solve complex problems. From automation to production debugging.</p>
-        </div>
+      <!-- Featured Projects -->
+      <h2>🚀 Featured Projects</h2>
+      <div class="projects-grid">
 
-        <div class="card">
-          <h3>🏗️ FAANG-Level Projects</h3>
-          <p>Production systems that solve problems at Netflix, Uber, Google scale. Microservice visualization, log analysis, infrastructure optimization.</p>
-        </div>
+        <!-- RAG Mastery Hub -->
+        <a href="https://github.com/KlementMultiverse/rag-mastery-hub" target="_blank" class="project-card">
+          <div class="project-header">
+            <h3>🎓 RAG Mastery Hub</h3>
+          </div>
+          <p class="project-description">
+            Complete RAG learning path from basic to production. Multi-agent systems with LangChain, AutoGen, CrewAI, LangGraph, and Bedrock. Knowledge graphs, query optimization, cloud deployments.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-badge">RAG</span>
+            <span class="tech-badge">LangChain</span>
+            <span class="tech-badge">AutoGen</span>
+            <span class="tech-badge">CrewAI</span>
+            <span class="tech-badge">AWS/GCP/Azure</span>
+          </div>
+        </a>
 
-        <div class="card">
-          <h3>⚡ DevOps Automation</h3>
-          <p>Complete automation of development workflows. From code generation to deployment, testing to monitoring—all automated.</p>
+        <!-- SEO Analyzer Pro -->
+        <a href="https://github.com/KlementMultiverse/seo-analyzer-pro" target="_blank" class="project-card">
+          <div class="project-header">
+            <h3>🔍 SEO Analyzer Pro</h3>
+          </div>
+          <p class="project-description">
+            Professional SEO analysis tool with REST API, CLI, and web interface. Analyzes meta tags, performance, mobile-friendliness, and technical SEO. Production-ready with Docker support.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">FastAPI</span>
+            <span class="tech-badge">Docker</span>
+            <span class="tech-badge">SEO</span>
+          </div>
+        </a>
+
+        <!-- Elder Guardian -->
+        <a href="https://github.com/KlementMultiverse/elder-guardian" target="_blank" class="project-card">
+          <div class="project-header">
+            <h3>👴 Elder Guardian</h3>
+          </div>
+          <p class="project-description">
+            AI-powered elderly fall detection system using NVIDIA Isaac Sim. Real-time monitoring and alerts for elderly care facilities. Advanced computer vision and pose estimation.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-badge">NVIDIA AI</span>
+            <span class="tech-badge">Isaac Sim</span>
+            <span class="tech-badge">Computer Vision</span>
+          </div>
+        </a>
+
+        <!-- Mars Mission Isaac -->
+        <a href="https://github.com/KlementMultiverse/mars-mission-isaac" target="_blank" class="project-card">
+          <div class="project-header">
+            <h3>🚀 Mars Mission Isaac</h3>
+          </div>
+          <p class="project-description">
+            NASA-grade Mars Sample Return mission demo built with NVIDIA Isaac Sim. Autonomous navigation, sample collection, and return mission simulation. 100% online demonstration.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-badge">NVIDIA Isaac</span>
+            <span class="tech-badge">Robotics</span>
+            <span class="tech-badge">Simulation</span>
+          </div>
+        </a>
+
+        <!-- NVIDIA AI Report Generator -->
+        <a href="https://github.com/KlementMultiverse/nvidia-ai-report-generator" target="_blank" class="project-card">
+          <div class="project-header">
+            <h3>📊 NVIDIA AI Report Generator</h3>
+          </div>
+          <p class="project-description">
+            AI Research Agent using NVIDIA NIM + Tavily. Auto-generates comprehensive markdown reports from research queries. Production-ready research automation.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-badge">NVIDIA NIM</span>
+            <span class="tech-badge">Tavily</span>
+            <span class="tech-badge">Research AI</span>
+          </div>
+        </a>
+
+        <!-- Finexa -->
+        <a href="https://github.com/KlementMultiverse/finexa" target="_blank" class="project-card">
+          <div class="project-header">
+            <h3>💰 Finexa</h3>
+          </div>
+          <p class="project-description">
+            Autonomous Financial Intelligence System. AI-powered document processing, financial analysis, and intelligent insights. Production-grade financial automation.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-badge">AI Agents</span>
+            <span class="tech-badge">NLP</span>
+            <span class="tech-badge">FinTech</span>
+          </div>
+        </a>
+
+        <!-- Mysava -->
+        <a href="https://github.com/KlementMultiverse/Mysava" target="_blank" class="project-card">
+          <div class="project-header">
+            <h3>🎭 Mysava</h3>
+          </div>
+          <p class="project-description">
+            Virtual influencer with interactive mode and face sync with audio. Real-time lip-sync, emotion detection, and conversational AI. Next-gen virtual assistant.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-badge">Computer Vision</span>
+            <span class="tech-badge">Audio Sync</span>
+            <span class="tech-badge">Interactive AI</span>
+          </div>
+        </a>
+
+        <!-- API Documentation Generator -->
+        <a href="https://github.com/KlementMultiverse/api-documentation-generator" target="_blank" class="project-card">
+          <div class="project-header">
+            <h3>📚 API Doc Generator</h3>
+          </div>
+          <p class="project-description">
+            Auto-generate beautiful API documentation from code. Smart parsing, Markdown/HTML output, CI/CD integration. Developer productivity tool.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">Code Analysis</span>
+            <span class="tech-badge">DevTools</span>
+          </div>
+        </a>
+
+        <!-- Customer Support Agent -->
+        <a href="https://github.com/KlementMultiverse/customer-support-agent" target="_blank" class="project-card">
+          <div class="project-header">
+            <h3>🤖 Customer Support Agent</h3>
+          </div>
+          <p class="project-description">
+            AI Customer Support Agent using OpenAI and ReAct pattern. Intelligent ticket routing, automated responses, and context-aware support.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-badge">OpenAI</span>
+            <span class="tech-badge">ReAct Pattern</span>
+            <span class="tech-badge">Automation</span>
+          </div>
+        </a>
+
+        <!-- RAG Microservices -->
+        <a href="https://github.com/KlementMultiverse/rag-microservices" target="_blank" class="project-card">
+          <div class="project-header">
+            <h3>🏗️ RAG Microservices</h3>
+          </div>
+          <p class="project-description">
+            Learn to build RAG with microservices architecture. Scalable, production-ready RAG system with Docker, Kubernetes, and modern DevOps practices.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-badge">Microservices</span>
+            <span class="tech-badge">Docker</span>
+            <span class="tech-badge">Kubernetes</span>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- Private Projects Section -->
+      <div class="section-divider">
+        <h2>🔒 Private Projects (In Development)</h2>
+        <div class="projects-grid">
+
+          <div class="project-card locked">
+            <div class="project-header">
+              <h3>🔒 Blog Automation System</h3>
+              <span class="lock-badge">🔒 Private</span>
+            </div>
+            <p class="project-description">
+              9-agent pipeline for automated blog generation and multi-platform publishing. AI-powered content creation with trend monitoring.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-badge">Multi-Agent</span>
+              <span class="tech-badge">Content AI</span>
+              <span class="tech-badge">Automation</span>
+            </div>
+          </div>
+
+          <div class="project-card locked">
+            <div class="project-header">
+              <h3>🔒 Automation Center</h3>
+              <span class="lock-badge">🔒 Private</span>
+            </div>
+            <p class="project-description">
+              Master automation hub with 12 automation tools. GitHub repo management, project launcher, redesign agents, and social media automation.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-badge">DevOps</span>
+              <span class="tech-badge">CI/CD</span>
+              <span class="tech-badge">Agents</span>
+            </div>
+          </div>
+
+          <div class="project-card locked">
+            <div class="project-header">
+              <h3>🔒 Daily Project Generator</h3>
+              <span class="lock-badge">🔒 Private</span>
+            </div>
+            <p class="project-description">
+              Automated daily project idea generation and implementation. AI-powered project creation with GitHub integration and deployment automation.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-badge">AI Agents</span>
+              <span class="tech-badge">GitHub API</span>
+              <span class="tech-badge">Automation</span>
+            </div>
+          </div>
+
         </div>
       </div>
 
       <!-- Tech Stack -->
-      <h2>🛠️ Tech Stack</h2>
-      <div class="tech-stack">
-        <span class="tech-badge">Multi-Agent Systems</span>
-        <span class="tech-badge">Python</span>
-        <span class="tech-badge">FastAPI</span>
-        <span class="tech-badge">LangChain</span>
-        <span class="tech-badge">RAG</span>
-        <span class="tech-badge">Docker</span>
-        <span class="tech-badge">Kubernetes</span>
-        <span class="tech-badge">CI/CD</span>
-        <span class="tech-badge">AWS/GCP</span>
-        <span class="tech-badge">PostgreSQL</span>
-        <span class="tech-badge">Redis</span>
-        <span class="tech-badge">Vector DBs</span>
-      </div>
-
-      <!-- Collaboration Model -->
-      <h2>💡 The Collaboration Model</h2>
-      <div style="background: #f8fafc; padding: 2rem; border-radius: 15px; margin: 2rem 0;">
-        <div style="display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 1rem; align-items: center; text-align: center;">
-          <div>
-            <div style="font-size: 3rem;">🧠</div>
-            <strong>Human:</strong> Strategy
-          </div>
-          <div style="font-size: 2rem; color: var(--gray);">→</div>
-          <div>
-            <div style="font-size: 3rem;">🤖</div>
-            <strong>AI:</strong> Implementation
-          </div>
-          <div style="font-size: 2rem; color: var(--gray);">→</div>
-          <div>
-            <div style="font-size: 3rem;">🚀</div>
-            <strong>Result:</strong> Production
-          </div>
+      <div class="section-divider">
+        <h2>🛠️ Tech Stack</h2>
+        <div class="tech-stack" style="justify-content: center;">
+          <span class="tech-badge">Multi-Agent Systems</span>
+          <span class="tech-badge">RAG Pipelines</span>
+          <span class="tech-badge">LangChain</span>
+          <span class="tech-badge">AutoGen</span>
+          <span class="tech-badge">CrewAI</span>
+          <span class="tech-badge">LangGraph</span>
+          <span class="tech-badge">Python</span>
+          <span class="tech-badge">FastAPI</span>
+          <span class="tech-badge">Docker</span>
+          <span class="tech-badge">Kubernetes</span>
+          <span class="tech-badge">AWS</span>
+          <span class="tech-badge">GCP</span>
+          <span class="tech-badge">Azure</span>
+          <span class="tech-badge">NVIDIA AI</span>
+          <span class="tech-badge">PostgreSQL</span>
+          <span class="tech-badge">Vector DBs</span>
+          <span class="tech-badge">Redis</span>
+          <span class="tech-badge">CI/CD</span>
         </div>
       </div>
 
-      <!-- Current Focus -->
-      <h2>🎯 Current Focus</h2>
-      <ul style="font-size: 1.1rem; line-height: 2; margin: 1rem 0;">
-        <li>🔮 <strong>Production Log Analyzer</strong> - AI-powered debugging for production systems</li>
-        <li>🏗️ <strong>Microservice Visualizer</strong> - Map and debug 1000+ services in real-time</li>
-        <li>📊 <strong>Infrastructure Cost Optimizer</strong> - Save 40% on cloud costs automatically</li>
-        <li>🤖 <strong>Multi-Agent Frameworks</strong> - Building the next generation of AI systems</li>
-      </ul>
     </div>
 
     <!-- CTA -->
     <div class="cta-section">
       <h2 style="color: white; margin-bottom: 1rem;">💼 Open to Opportunities</h2>
       <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #e0e7ff;">
-        AI/ML Engineering • DevOps/Platform Engineering • Full-Stack with AI Focus
+        AI/ML Engineering • Multi-Agent Systems • RAG Specialist • DevOps • Full-Stack with AI
       </p>
       <a href="https://www.linkedin.com/in/klement-gunndu-601872351" class="btn" target="_blank">Connect on LinkedIn</a>
       <a href="https://github.com/KlementMultiverse" class="btn" target="_blank">View GitHub</a>
-      <a href="projects.html" class="btn">See Projects</a>
     </div>
   </div>
 
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p>🤖 Built through human-AI collaboration | © 2025 Klement Gunndu</p>
+      <p>© 2025 Klement Gunndu | AI/ML Engineer | Multi-Agent Systems & RAG Expert</p>
       <p style="margin-top: 0.5rem; opacity: 0.8;">
-        "The future belongs to those who learn to collaborate with AI, not compete against it."
+        Built with modern web technologies | Optimized for search engines
       </p>
     </div>
   </footer>
