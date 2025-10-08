@@ -96,6 +96,7 @@
       min-height: 100vh;
       position: relative;
       overflow-x: hidden;
+      padding-top: 70px;
     }
 
     /* Animated background image */
@@ -397,6 +398,65 @@
       right: 100%;
       transform: translateY(-50%);
       box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+    }
+
+    /* Flowing Bible Verse Banner */
+    .scripture-banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(135deg,
+        rgba(0, 71, 171, 0.95) 0%,
+        rgba(212, 175, 55, 0.95) 50%,
+        rgba(0, 71, 171, 0.95) 100%
+      );
+      backdrop-filter: blur(10px);
+      padding: 1rem 0;
+      z-index: 1000;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .scripture-text {
+      display: inline-block;
+      white-space: nowrap;
+      animation: scrollLeft 30s linear infinite;
+      font-family: 'Georgia', serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--ivory);
+      text-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(212, 175, 55, 0.6);
+      letter-spacing: 2px;
+      padding: 0 50px;
+    }
+
+    @keyframes scrollLeft {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    .scripture-text::before {
+      content: '✦';
+      color: var(--gold);
+      margin: 0 2rem;
+      font-size: 1.5rem;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .scripture-text::after {
+      content: '✦';
+      color: var(--gold);
+      margin: 0 2rem;
+      font-size: 1.5rem;
+      animation: pulse 2s ease-in-out infinite;
     }
 
     .container {
@@ -1346,6 +1406,13 @@
   </style>
 </head>
 <body>
+
+  <!-- Flowing Scripture Banner -->
+  <div class="scripture-banner">
+    <div class="scripture-text">
+      "And the man waxed great, and went forward, and grew until he became very great:" — GENESIS 26:13, KJV
+    </div>
+  </div>
 
   <!-- Light Speed Rockets Background -->
   <div class="rockets">
