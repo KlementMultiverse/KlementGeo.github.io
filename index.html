@@ -219,12 +219,31 @@
       padding-bottom: 1rem;
       font-weight: 400;
       letter-spacing: 1px;
+      animation: slideInLeft 0.8s ease;
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
 
     h2::before {
       content: '✦';
       color: var(--gold);
       margin-right: 0.5rem;
+      display: inline-block;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.2); opacity: 0.8; }
     }
 
     h2::after {
@@ -235,6 +254,12 @@
       width: 100px;
       height: 3px;
       background: linear-gradient(90deg, var(--gold), transparent);
+      animation: expandWidth 1s ease;
+    }
+
+    @keyframes expandWidth {
+      from { width: 0; }
+      to { width: 100px; }
     }
 
     .projects-grid {
@@ -249,13 +274,35 @@
       border-radius: 15px;
       padding: 2.2rem;
       border: 2px solid var(--stone);
-      transition: all 0.4s ease;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
       text-decoration: none;
       color: inherit;
       display: block;
       box-shadow: 0 4px 15px rgba(0, 71, 171, 0.08);
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    /* Staggered animation for cards */
+    .project-card:nth-child(1) { animation-delay: 0.1s; }
+    .project-card:nth-child(2) { animation-delay: 0.2s; }
+    .project-card:nth-child(3) { animation-delay: 0.3s; }
+    .project-card:nth-child(4) { animation-delay: 0.4s; }
+    .project-card:nth-child(5) { animation-delay: 0.5s; }
+    .project-card:nth-child(6) { animation-delay: 0.6s; }
+    .project-card:nth-child(7) { animation-delay: 0.7s; }
+    .project-card:nth-child(8) { animation-delay: 0.8s; }
+    .project-card:nth-child(9) { animation-delay: 0.9s; }
+    .project-card:nth-child(10) { animation-delay: 1s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .project-card::before {
@@ -266,14 +313,48 @@
       width: 100%;
       height: 4px;
       background: linear-gradient(90deg, var(--primary), var(--gold), var(--secondary));
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    /* Animated background gradient */
+    .project-card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+      animation: rotate 15s linear infinite;
+      z-index: 0;
+    }
+
+    .project-card > * {
+      position: relative;
+      z-index: 1;
     }
 
     .project-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-12px) scale(1.02);
       box-shadow:
-        0 15px 40px rgba(0, 71, 171, 0.15),
-        0 0 0 2px var(--gold);
+        0 20px 50px rgba(0, 71, 171, 0.2),
+        0 0 0 3px var(--gold),
+        0 0 20px rgba(212, 175, 55, 0.3);
       border-color: var(--gold);
+    }
+
+    .project-card:hover::before {
+      animation: shimmerFast 1s ease-in-out infinite;
+    }
+
+    @keyframes shimmerFast {
+      0%, 100% { opacity: 1; transform: scaleX(1); }
+      50% { opacity: 0.8; transform: scaleX(1.05); }
     }
 
     .project-card.locked {
@@ -307,6 +388,12 @@
       margin-bottom: 0.8rem;
       font-weight: 600;
       letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover h3 {
+      color: var(--gold);
+      transform: translateX(5px);
     }
 
     .project-card.locked h3 {
@@ -350,6 +437,25 @@
       font-weight: 600;
       font-family: 'Segoe UI', sans-serif;
       border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .tech-badge:nth-child(1) { animation-delay: 0s; }
+    .tech-badge:nth-child(2) { animation-delay: 0.2s; }
+    .tech-badge:nth-child(3) { animation-delay: 0.4s; }
+    .tech-badge:nth-child(4) { animation-delay: 0.6s; }
+    .tech-badge:nth-child(5) { animation-delay: 0.8s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+    }
+
+    .project-card:hover .tech-badge {
+      background: linear-gradient(135deg, var(--gold), var(--primary));
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
     }
 
     .project-card.locked .tech-badge {
@@ -370,6 +476,28 @@
       background: linear-gradient(135deg, rgba(0, 71, 171, 0.05), rgba(212, 175, 55, 0.05));
       border-radius: 15px;
       border: 2px solid var(--stone);
+      transition: all 0.4s ease;
+      opacity: 0;
+      transform: scale(0.8);
+      animation: scaleIn 0.6s ease forwards;
+    }
+
+    .stat:nth-child(1) { animation-delay: 0.2s; }
+    .stat:nth-child(2) { animation-delay: 0.4s; }
+    .stat:nth-child(3) { animation-delay: 0.6s; }
+
+    @keyframes scaleIn {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .stat:hover {
+      transform: scale(1.05) translateY(-5px);
+      background: linear-gradient(135deg, rgba(0, 71, 171, 0.1), rgba(212, 175, 55, 0.1));
+      border-color: var(--gold);
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
     }
 
     .stat-number {
@@ -378,6 +506,12 @@
       color: var(--primary);
       display: block;
       font-family: 'Georgia', serif;
+      transition: all 0.3s ease;
+    }
+
+    .stat:hover .stat-number {
+      color: var(--gold);
+      transform: scale(1.1);
     }
 
     .stat-number::before {
@@ -385,6 +519,13 @@
       font-size: 1.5rem;
       color: var(--gold);
       margin-right: 0.5rem;
+      display: inline-block;
+      animation: spin 4s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
 
     .stat-label {
@@ -477,6 +618,12 @@
       padding: 0 1rem;
       color: var(--gold);
       font-size: 1.5rem;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-10px); }
     }
 
     .wisdom-quote {
@@ -490,6 +637,22 @@
       color: var(--dark);
       font-size: 1.1rem;
       line-height: 1.9;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease 0.5s forwards;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wisdom-quote::before {
+      content: '"';
+      position: absolute;
+      top: -10px;
+      left: 10px;
+      font-size: 6rem;
+      color: var(--gold);
+      opacity: 0.1;
+      font-family: Georgia, serif;
     }
 
     @media (max-width: 768px) {
